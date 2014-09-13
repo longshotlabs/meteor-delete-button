@@ -1,9 +1,9 @@
 {
-  "name": "delete-button",
+  "name": "aldeed:delete-button",
   "description": "Provides a delete button UI component",
   "homepage": "https://github.com/aldeed/meteor-delete-button",
   "author": "Eric Dobbertin (http://dairystatedesigns.com)",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "git": "https://github.com/aldeed/meteor-delete-button.git",
   "packages": {}
 }

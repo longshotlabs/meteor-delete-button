@@ -5,10 +5,10 @@ A simple smart package for Meteor that provides a delete button UI component. Th
 
 ## Installation
 
-Install using Meteorite. When in a Meteorite-managed app directory, enter:
+In your Meteor app directory, enter:
 
 ```
-$ mrt add delete-button
+$ meteor add aldeed:delete-button
 ```
 
 ## Usage

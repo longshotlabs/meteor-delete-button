@@ -22,8 +22,14 @@ Template.quickRemoveButton.events({
   'click button': function (event, template) {
     var self = this;
     var collection = lookup(self.collection);
-    if (!(collection instanceof Meteor.Collection)) {
-      throw new Error("quickRemoveButton: collection attribute must be set to a Meteor.Collection instance or a string reference to a Meteor.Collection instance that is in the window scope.");
+    if (typeof Meteor !== "undefined" && Meteor.Collection) {
+      if (!(collection instanceof Meteor.Collection)) {
+        throw new Error("quickRemoveButton: collection attribute must be set to a Meteor.Collection instance or a string reference to a Meteor.Collection instance that is in the window scope.");
+      }
+    } else if (typeof Mongo !== "undefined" && Mongo.Collection) {
+      if (!(collection instanceof Mongo.Collection)) {
+        throw new Error("quickRemoveButton: collection attribute must be set to a Mongo.Collection instance or a string reference to a Mongo.Collection instance that is in the window scope.");
+      }
     }
     var onError = self.onError || function (error) {
       alert("Delete failed");
