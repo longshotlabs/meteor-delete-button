@@ -1,7 +1,7 @@
 delete-button
 =========================
 
-A simple smart package for Meteor that provides a delete button UI component. This was formerly provided by the [AutoForm](https://github.com/aldeed/meteor-autoform) package as `afDeleteButton`, but it had very little to do with autoform, so it was moved to this separate package.
+A Meteor package that provides a delete button UI component. This was formerly provided by the [AutoForm](https://github.com/aldeed/meteor-autoform) package as `afDeleteButton`, but it had very little to do with autoform, so it was moved to this separate package.
 
 ## Installation
 
