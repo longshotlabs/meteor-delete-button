@@ -8,10 +8,10 @@ Package.describe({
 Package.on_use(function(api) {
   if (api.versionsFrom) {
     api.versionsFrom('METEOR@0.9.1');
-    api.use(['templating', 'mongo-livedata']);
+    api.use(['templating', 'mongo']);
   } else {
-    api.use(['templating', 'mongo-livedata']);
+    api.use(['templating', 'mongo']);
   }
-  
+
   api.add_files(['delete-button.html', 'delete-button.js'], 'client');
 });
