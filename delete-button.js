@@ -7,6 +7,8 @@ Template.quickRemoveButton.helpers({
           prop !== "collection" &&
           prop !== "onError" &&
           prop !== "onSuccess" &&
+          prop !== "meteormethod" &&
+          prop !== "type" &&
           prop !== "beforeRemove") {
         atts[prop] = context[prop];
       }
@@ -37,15 +39,28 @@ Template.quickRemoveButton.events({
     };
     var onSuccess = self.onSuccess || function () {};
     var beforeRemove = self.beforeRemove || function () { this.remove(); };
+    var type = self.type || "remove";
+
     beforeRemove.call({
       remove: function () {
-        collection.remove(self._id, function (error, result) {
-          if (error) {
-            onError(error);
-          } else {
-            onSuccess(result);
-          }
-        });
+        if (type === "remove") {
+          collection.remove(self._id, function (error, result) {
+            if (error) {
+              onError(error);
+            } else {
+              onSuccess(result);
+            }
+          });
+        } else if (type === "method") {
+          var meteormethod = self.meteormethod || "";
+          Meteor.call(meteormethod, function (error, result) {
+            if (error) {
+              onError(error);
+            } else {
+              onSuccess(result);
+            }            
+          })
+        }
       }
     }, collection, self._id);
   }
