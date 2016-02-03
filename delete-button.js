@@ -48,6 +48,7 @@ Template.quickRemoveButton.events({
         });
       }
     }, collection, self._id);
+    return false;
   }
 });
 
